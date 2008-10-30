@@ -1,29 +1,11 @@
 local L = {
-	["ERROR_NO_FRAME"] = "No frame returned for the addon \"%s\", category \"%s\", sub category \"%s\".",
-	["NO_FUNC_PASSED"] = "You must associate a function with a category.",
 	["BAD_ARGUMENT"] = "bad argument #%d to '%s' (%s expected, got %s)",
-	["MUST_CALL"] = "You must call '%s' from an OptionHouse addon object.",
-	["ADDON_ALREADYREG"] = "The addon '%s' is already registered with OptionHouse.",
 	["UNKNOWN_TAB"] = "Cannot open tab #%d, only %d tabs are registered.",
-	["CATEGORY_ALREADYREG"] = "The category '%s' already exists in '%s'",
-	["NO_CATEGORYEXISTS"] = "No category named '%s' in '%s' exists.",
-	["NO_SUBCATEXISTS"] = "No sub-category '%s' exists in '%s' for the addon '%s'.",
-	["NO_PARENTCAT"] = "No parent category named '%s' exists in %s'",
-	["SUBCATEGORY_ALREADYREG"] = "The sub-category named '%s' already exists in the category '%s' for '%s'",
-	["UNKNOWN_FRAMETYPE"] = "Unknown frame type given '%s', only 'main', 'perf', 'addon', 'config', 'graph' are supported.",
-	["OPTION_HOUSE"] = "OptionHouse",
-	["ENTERED_COMBAT"] = "|cFF33FF99OptionHouse|r: Configuration window closed due to entering combat.",
-	["IN_COMBAT"] = "|cFF33FF99OptionHouse|r: Configuration window cannot be opened while in combat.",
 	["SEARCH"] = "Search...",
-	["ADDON_OPTIONS"] = "Addons",
-	["VERSION"] = "Version: %s",
-	["AUTHOR"] = "Author: %s",
-	["TOTAL_SUBCATEGORIES"] = "Sub Categories: %d",
+	["OPTIONLESSHOUSE"] = "Option(less)House",
+	["OPTIONHOUSE"] = "OptionHouse",
 	["TAB_MANAGEMENT"] = "Management",
 	["TAB_PERFORMANCE"] = "Performance",
-	["TAB_GRAPH"] = "Performance Graph",
-	["SECURE_FRAME"] = "OptionHouse is currently a secure frame and cannot be opened in combat.",
-	["INSECURE_FRAME"] = "OptionHouse is not a secure frame, and can be opened while in combat.",
 }
 
 local function assert(level,condition,message)
@@ -514,7 +496,7 @@ local function createOHFrame()
 	local title = frame:CreateFontString(nil, "OVERLAY")
 	title:SetFontObject(GameFontNormal)
 	title:SetPoint("TOP", 0, -18)
-	title:SetText(L["OPTION_HOUSE"])
+	title:SetText(L["OPTIONLESSHOUSE"])
 	
 	-- Container border
 	frame.topLeft = frame:CreateTexture(nil, "ARTWORK")
@@ -628,7 +610,7 @@ end
 -- which will upgrade below to use the current version anyway
 if( not GameMenuButtonOptionHouse ) then
 	local menubutton = CreateFrame("Button", "GameMenuButtonOptionHouse", GameMenuFrame, "GameMenuButtonTemplate")
-	menubutton:SetText(L["OPTION_HOUSE"])
+	menubutton:SetText(L["OPTIONHOUSE"])
 	menubutton:SetScript("OnClick", function()
 		openedByMenu = true
 

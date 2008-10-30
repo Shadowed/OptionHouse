@@ -21,9 +21,11 @@ local L = {
 	["AUTHOR"] = "Author: %s",
 	["VERSION"] = "Version: %s",
 	["DISABLED_AT_RELOAD"] = "Disabled on UI Reload",
+	["ENABLED_AT_RELOAD"] = "Enabled on UI Reload",
 	["LOD_LOADED"] = "Is Loadable on Demand but already loaded",
 	["LOAD_ON_DEMAND"] = "Loadable on Demand",
 	["ADDON_MANAGEMENT"] = "Management",
+	["LOADED"] = "Loaded",
 	["NAME"] = "Name",
 	["STATUS"] = "Status",
 	["NOTES"] = "Notes: %s",
@@ -306,6 +308,18 @@ local function saveAddonData(id, skipCheck)
 	-- Addon is LoD, but it was already loaded/enabled so dont show the button
 	elseif( isLoD and isLoaded and enabled ) then
 		reason = L["LOD_LOADED"]
+	
+	-- Addon is enabled, but isn't LoD so enabled on reload
+	elseif( not isLoaded and enabled ) then
+		reason = L["ENABLED_AT_RELOAD"]
+		color = STATUS_COLORS["NOT_DEMAND_LOADED"]
+	
+	-- Addon is disabled
+	elseif( not enabled ) then
+		reason = TEXT(ADDON_DISABLED)
+		color = STATUS_COLORS["DISABLED"]
+	else
+		reason = L["LOADED"]
 	end
 
 	local tooltip = "|cffffffff" .. title .. "|r"
