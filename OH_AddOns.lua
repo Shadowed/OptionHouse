@@ -4,6 +4,13 @@ local frame
 local TOTAL_ROWS = 14
 local CREATED_ROWS = 0
 
+local blizzardAddons = {
+	"Blizzard_AchievementUI", "Blizzard_AuctionUI", "Blizzard_BarbershopUI", "Blizzard_BattlefieldMinimap",
+	"Blizzard_BindingUI", "Blizzard_Calendar", "Blizzard_CombatLog", "Blizzard_GlyphUI",
+	"Blizzard_GMSurveyUI", "Blizzard_GuildBankUI", "Blizzard_InspectUI", "Blizzard_ItemSocketingUI", "Blizzard_MacroUI",
+	"Blizzard_RaidUI", "Blizzard_TalentUI", "Blizzard_TimeManager", "Blizzard_TokenUI", "Blizzard_TradeSkillUI", "Blizzard_TrainerUI"
+}
+
 local STATUS_COLORS = {
 	["DISABLED"] = "|cff9d9d9d",
 	["NOT_DEMAND_LOADED"] = "|cffff8000",
@@ -267,12 +274,12 @@ local function saveAddonData(id, skipCheck)
 	if( not frame.dependencies[name] ) then
 		frame.dependencies[name] = createDependencies(GetAddOnDependencies(id))
 	end
-
+	
+	title = title or id
+	
 	-- Strip out the stupid -Ace2- stuff
-	if( title ) then
-		title = string.gsub(title, "%-(.+)%-%|r", "|r")
-	end
-
+	title = string.gsub(title, "%-(.+)%-%|r", "|r")
+	
 	if( type(version) == "string" ) then
 		-- Strip out some of the common strings from version meta data
 		version = string.gsub(version, "%$Revision: (%d+) %$", "r%1")
@@ -359,6 +366,10 @@ local function createManageList()
 	frame.dependencies = {}
 	frame.addons = {}
 	frame.addonStatus = {}
+	
+	for _, name in pairs(blizzardAddons) do
+		saveAddonData(name, true)
+	end
 
 	for i=1, GetNumAddOns() do
 		saveAddonData(i, true)
@@ -645,7 +656,7 @@ local function createManageFrame(hide)
 		disableAll:SetText(L["DISABLE_ALL"])
 		disableAll:SetScript("OnClick", function()
 			DisableAllAddOns()
-			EnableAddOn("OptionHouse")
+			EnableAddOn("OptionlessHouse")
 
 			createManageList()
 			updateManageList()
