@@ -1,0 +1,10 @@
+## Interface: 30100
+## Title: Option House
+## Notes: Addon control panel and performance monitor
+## Author: Mayen
+
+localization.enUS.lua
+
+OptionHouse.lua
+addons.lua
+performance.lua
