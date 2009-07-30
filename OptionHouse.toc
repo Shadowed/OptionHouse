@@ -7,6 +7,7 @@
 ## Author: Mayen
 
 localization.enUS.lua
+localization.zhCN.lua
 
 OptionHouse.lua
 addons.lua
