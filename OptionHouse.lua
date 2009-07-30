@@ -521,8 +521,8 @@ SLASH_OH1 = nil
 SlashCmdList["OH"] = nil
 
 SLASH_OPTIONHOUSE1 = "/opthouse"
-SLASH_OPTIONHOUSE1 = "/optionhouse"
-SLASH_OPTIONHOUSE2 = "/oh"
+SLASH_OPTIONHOUSE2 = "/optionhouse"
+SLASH_OPTIONHOUSE3 = "/oh"
 SlashCmdList["OPTIONHOUSE"] = function(tab)
 	OptionHouse:Open(tab)
 end
