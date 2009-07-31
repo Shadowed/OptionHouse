@@ -8,6 +8,7 @@
 
 localization.enUS.lua
 localization.zhCN.lua
+localization.ruRU.lua
 
 OptionHouse.lua
 addons.lua
