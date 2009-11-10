@@ -90,6 +90,10 @@ local function tabOnClick(self)
 end
 
 function OptionHouse:CreateTab(text, id)
+	if( not self.frame ) then
+		self:CreateUI()
+	end
+	
 	local tab = self.frame.tabs[id]
 	if( not tab ) then
 		tab = CreateFrame("Button", nil, self.frame)
@@ -479,7 +483,7 @@ function OptionHouse:RegisterTab(text, func, type)
 	table.insert(tabFunctions, {func = func, text = text, type = type})
 
 	-- Will create all of the tabs when the frame is created if needed
-	if( not frame ) then
+	if( not self.frame ) then
 		return
 	end
 
