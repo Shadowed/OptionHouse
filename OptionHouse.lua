@@ -90,6 +90,10 @@ local function tabOnClick(self)
 end
 
 function OptionHouse:CreateTab(text, id)
+	if( not self.frame ) then
+		self:CreateUI()
+	end
+	
 	local tab = self.frame.tabs[id]
 	if( not tab ) then
 		tab = CreateFrame("Button", nil, self.frame)
