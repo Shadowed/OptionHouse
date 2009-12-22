@@ -483,7 +483,7 @@ function OptionHouse:RegisterTab(text, func, type)
 	table.insert(tabFunctions, {func = func, text = text, type = type})
 
 	-- Will create all of the tabs when the frame is created if needed
-	if( not frame ) then
+	if( not self.frame ) then
 		return
 	end
 
