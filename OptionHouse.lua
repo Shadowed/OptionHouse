@@ -1,5 +1,5 @@
 --[[ 
-	OptionHouse, by Mayen - Mal'Ganis PvP (US)
+	OptionHouse, by Shadow - Mal'Ganis (US)
 
 	Thanks Tekkub and Cladhaire for the original idea and some of the code... which I mutilated shortly thereafter!
 ]]
