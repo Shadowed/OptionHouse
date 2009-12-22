@@ -557,6 +557,7 @@ local function createManageFrame(hide)
 	disableAll:SetText(L["Disable All"])
 	disableAll:SetScript("OnClick", function()
 		DisableAllAddOns()
+		EnableAddOn("AddonLoader")
 		EnableAddOn("OptionHouse")
 
 		createManageList()
