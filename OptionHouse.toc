@@ -1,10 +1,10 @@
-## Interface: 30100
+## Interface: 30300
 ## Title: Option House
 ## Notes: Addon control panel and performance monitor
 ## LoadManagers: AddonLoader
 ## X-LoadOn-Slash: /oh, /opthouse, /optionhouse
 ## X-LoadOn-Execute: GameMenuFrame:HookScript("OnShow", function() if( not OptionHouse ) then AddonLoader:LoadAddOn("OptionHouse") end end)
-## Author: Mayen
+## Author: Shadowed
 
 localization.enUS.lua
 localization.zhCN.lua
